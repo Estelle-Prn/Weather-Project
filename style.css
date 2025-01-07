@@ -34,12 +34,42 @@ header {
 .Weather-Content {
   display: flex;
   justify-content: space-between;
+  padding: 30px 0;
+}
+.City-name {
+  margin: 0;
+  font-size: 38px;
+  line-height: 48px;
+}
+.City-details {
+  color: #a8a6b4;
+  line-height: 24px;
+  font-weight: 500;
+}
+.City-details strong {
+  color: #f65281;
+}
+.actuel-temperature {
+  font-size: 88px;
+  font-weight: bold;
+}
+.temperature-icone {
+  font-size: 50px;
+  float: inline-start;
+  margin-top: 20px;
+  margin-right: 5px;
+}
+.temperature-celsius {
+  font-size: 28px;
+  float: inline-end;
+  margin-top: 10px;
 }
 footer {
   border-top: solid 1px #f9f7fe;
   padding: 30px 0 0 0;
   text-align: center;
   color: #666666;
+  font-size: 14px;
 }
 footer a {
   color: #885df1;
