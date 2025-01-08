@@ -2,6 +2,13 @@ function CorrespondingTemperature(response) {
   let UpdateTemperature = document.querySelector("#actual-temperature");
   let temperature = response.data.temperature.current;
   let ShowCity = document.querySelector("#CityName");
+  let description = document.querySelector("#description");
+  let humidity = document.querySelector("#Humidity");
+  let windSpeed = document.querySelector("#Wind-speed");
+
+  windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
+  humidity.innerHTML = `${response.data.temperature.humidity}%`;
+  description.innerHTML = response.data.condition.description;
   ShowCity.innerHTML = response.data.city;
   UpdateTemperature.innerHTML = Math.round(temperature);
 }
