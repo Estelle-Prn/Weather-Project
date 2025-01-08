@@ -1,5 +1,9 @@
 function CorrespondingTemperature(response) {
   let UpdateTemperature = document.querySelector("#actual-temperature");
+  let temperature = response.data.temperature.current;
+  let ShowCity = document.querySelector("#CityName");
+  ShowCity.innerHTML = response.data.city;
+  UpdateTemperature.innerHTML = Math.round(temperature);
 }
 
 function APIwork(city) {
@@ -11,8 +15,7 @@ function APIwork(city) {
 function IDK(event) {
   event.preventDefault();
   let ResultCityTap = document.querySelector("#SearchText");
-  let ShowCity = document.querySelector("#CityName");
-  ShowCity.innerHTML = ResultCityTap.value;
+
   APIwork(ResultCityTap.value);
 }
 
