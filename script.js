@@ -7,6 +7,7 @@ function CorrespondingTemperature(response) {
   let windSpeed = document.querySelector("#Wind-speed");
   let DayTime = document.querySelector("#DayAndTime");
   let date = new Date(response.data.time * 1000);
+  let iconTemperature = document.querySelector("#temperature-icone");
 
   DayTime.innerHTML = ActualDate(date);
   windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
@@ -14,7 +15,9 @@ function CorrespondingTemperature(response) {
   description.innerHTML = response.data.condition.description;
   ShowCity.innerHTML = response.data.city;
   UpdateTemperature.innerHTML = Math.round(temperature);
+  iconTemperature.innerHTML = `<img src="${response.data.condition.icon_url}" class="temperature-icone" />`;
 }
+
 function ActualDate(date) {
   let hour = date.getHours();
   let minutes = date.getMinutes();
