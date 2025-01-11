@@ -5,7 +5,10 @@ function CorrespondingTemperature(response) {
   let description = document.querySelector("#description");
   let humidity = document.querySelector("#Humidity");
   let windSpeed = document.querySelector("#Wind-speed");
+  let DayTime = document.querySelector("#DayAndTime");
+  let date = new Date(response.data.time * 1000);
 
+  DayTime.innerHTML = `${date.getDate()} ${date.getHours()}:${date.getMinutes()}`;
   windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
   humidity.innerHTML = `${response.data.temperature.humidity}%`;
   description.innerHTML = response.data.condition.description;
