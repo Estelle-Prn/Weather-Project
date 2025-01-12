@@ -54,5 +54,23 @@ function IDK(event) {
   APIwork(ResultCityTap.value);
 }
 
+function WeatherForecast() {
+  let forecast = document.querySelector("#weather-forecast");
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+
+  days.forEach(function (day) {
+    forecast.innerHTML += `  <div class="weather-forecast-days">
+            <div class="weather-forecast-date">${day}</div>
+            <div class="weather-forecast-icon">⛅️</div>
+            <div class="weather-forecast-temperatures">
+              <span class="weather-forecast-temperature-high">15°</span>
+              <span class="weather-forecast-temperature-low">9°</span>
+            </div>
+          </div>`;
+  });
+}
+
 let ResultSearchBlock = document.querySelector("#search-block");
 ResultSearchBlock.addEventListener("submit", IDK);
+
+WeatherForecast();
