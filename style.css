@@ -78,7 +78,7 @@ header {
 }
 .weather-forecast-icon {
   padding: 10px 0;
-  font-size: 50px;
+  width: 100%;
 }
 .weather-forecast-temperatures {
   margin-bottom: 20px;
