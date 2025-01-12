@@ -16,6 +16,8 @@ function CorrespondingTemperature(response) {
   ShowCity.innerHTML = response.data.city;
   UpdateTemperature.innerHTML = Math.round(temperature);
   iconTemperature.innerHTML = `<img src="${response.data.condition.icon_url}" class="temperature-icone" />`;
+
+  getForecastData(response.data.city);
 }
 
 function ActualDate(date) {
@@ -54,12 +56,19 @@ function IDK(event) {
   APIwork(ResultCityTap.value);
 }
 
-function WeatherForecast() {
-  let forecast = document.querySelector("#weather-forecast");
+function getForecastData(city) {
+  let apiKey = "04362ba118dbt14o9f7040e09062332b";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios(apiUrl).then(WeatherForecast);
+}
+
+function WeatherForecast(response) {
+  let forecastWeather = "";
+
   let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
 
   days.forEach(function (day) {
-    forecast.innerHTML += `  <div class="weather-forecast-days">
+    forecastWeather += `  <div class="weather-forecast-days">
             <div class="weather-forecast-date">${day}</div>
             <div class="weather-forecast-icon">⛅️</div>
             <div class="weather-forecast-temperatures">
@@ -68,9 +77,12 @@ function WeatherForecast() {
             </div>
           </div>`;
   });
+
+  let forecast = document.querySelector("#weather-forecast");
+  forecast.innerHTML = forecastWeather;
 }
 
 let ResultSearchBlock = document.querySelector("#search-block");
 ResultSearchBlock.addEventListener("submit", IDK);
 
-WeatherForecast();
+/*WeatherForecast();*/
